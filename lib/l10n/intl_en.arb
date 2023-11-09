@@ -1,0 +1,14 @@
+{
+    "appTitle": "Flutter Movie App",
+    "alertWarning": "Warning",
+    "alertNoConnection": "No connection, please check your internet",
+    "alertFailed": "Failed",
+    "alertTimeOut": "Request time out",
+    "alertConfirm": "Confirm",
+    "alertCancel": "Cancel",
+    "alertOk": "Ok",
+    "alertLogout": "Are you sure you want to log out?",
+    "alertQuit": "Are you sure you want to quit the app?",
+    "alertQuitGame": "Are you sure you want to quit the game?",
+    "yes": "Yes"
+}
