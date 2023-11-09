@@ -38,6 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Request time out"),
         "alertWarning": MessageLookupByLibrary.simpleMessage("Warning"),
         "appTitle": MessageLookupByLibrary.simpleMessage("Flutter Movie App"),
+        "moviesCollection":
+            MessageLookupByLibrary.simpleMessage("Movies Collection"),
+        "searchByTitle":
+            MessageLookupByLibrary.simpleMessage("Search by title"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }

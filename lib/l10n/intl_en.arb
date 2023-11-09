@@ -10,5 +10,7 @@
     "alertLogout": "Are you sure you want to log out?",
     "alertQuit": "Are you sure you want to quit the app?",
     "alertQuitGame": "Are you sure you want to quit the game?",
-    "yes": "Yes"
+    "yes": "Yes",
+    "moviesCollection": "Movies Collection",
+    "searchByTitle": "Search by title"
 }

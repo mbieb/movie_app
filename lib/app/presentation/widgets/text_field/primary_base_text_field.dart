@@ -83,7 +83,7 @@ class PrimaryBaseTextField extends StatelessWidget {
         border: outlineInputBorder,
         hintText: hintText,
         labelText: labelText,
-        hintStyle: cTextReg,
+        hintStyle: cTextReg.copyWith(color: cColorGrey4),
         errorText: isError ? '' : null,
         counterText: '',
         enabledBorder: outlineInputBorder,

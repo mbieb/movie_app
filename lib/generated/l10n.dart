@@ -169,6 +169,26 @@ class I10n {
       args: [],
     );
   }
+
+  /// `Movies Collection`
+  String get moviesCollection {
+    return Intl.message(
+      'Movies Collection',
+      name: 'moviesCollection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search by title`
+  String get searchByTitle {
+    return Intl.message(
+      'Search by title',
+      name: 'searchByTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<I10n> {
