@@ -6,11 +6,18 @@
     "alertTimeOut": "Request time out",
     "alertConfirm": "Confirm",
     "alertCancel": "Cancel",
+    "alertSuccess": "Success",
+    "alertSuccessAddMovie": "Success add movie!",
+    "alertSuccessDeleteMovie": "Success delete movie!",
     "alertOk": "Ok",
     "alertLogout": "Are you sure you want to log out?",
     "alertQuit": "Are you sure you want to quit the app?",
     "alertQuitGame": "Are you sure you want to quit the game?",
     "yes": "Yes",
     "moviesCollection": "Movies Collection",
-    "searchByTitle": "Search by title"
+    "searchByTitle": "Search by title",
+    "title": "Title",
+    "director": "Director",
+    "summary": "Summary",
+    "genres": "Genres"
 }

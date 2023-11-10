@@ -120,6 +120,36 @@ class I10n {
     );
   }
 
+  /// `Success`
+  String get alertSuccess {
+    return Intl.message(
+      'Success',
+      name: 'alertSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success add movie!`
+  String get alertSuccessAddMovie {
+    return Intl.message(
+      'Success add movie!',
+      name: 'alertSuccessAddMovie',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success delete movie!`
+  String get alertSuccessDeleteMovie {
+    return Intl.message(
+      'Success delete movie!',
+      name: 'alertSuccessDeleteMovie',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok`
   String get alertOk {
     return Intl.message(
@@ -185,6 +215,46 @@ class I10n {
     return Intl.message(
       'Search by title',
       name: 'searchByTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Title`
+  String get title {
+    return Intl.message(
+      'Title',
+      name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Director`
+  String get director {
+    return Intl.message(
+      'Director',
+      name: 'director',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Summary`
+  String get summary {
+    return Intl.message(
+      'Summary',
+      name: 'summary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Genres`
+  String get genres {
+    return Intl.message(
+      'Genres',
+      name: 'genres',
       desc: '',
       args: [],
     );

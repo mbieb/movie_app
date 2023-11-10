@@ -4,7 +4,6 @@ class _MovieItem extends StatelessWidget {
   final Movie item;
   const _MovieItem({
     required this.item,
-    super.key,
   });
 
   @override

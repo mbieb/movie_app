@@ -1,19 +1,20 @@
 import 'package:injectable/injectable.dart';
 import 'package:movie_app/app/domain/movie/movie.dart';
+import 'package:movie_app/app/domain/utils/common_util.dart';
 
 @injectable
 class MovieLocalDataSource {
   Future<List<Movie>> getData() async {
     return [
-      const Movie(
-        id: '1',
+      Movie(
+        id: CommonUtils.generateRandomId(),
         title: 'Power Ranger',
         director: 'Dean Israelite',
         genres: ['Action', 'Sci-Fi'],
         summary: 'Popwer Ranger is...',
       ),
-      const Movie(
-        id: '2',
+      Movie(
+        id: CommonUtils.generateRandomId(),
         title: 'Frozen',
         director: 'Chris Buck',
         genres: ['Animation'],

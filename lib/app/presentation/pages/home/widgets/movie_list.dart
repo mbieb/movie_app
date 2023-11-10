@@ -4,7 +4,6 @@ class _MovieList extends StatelessWidget {
   final List<Movie> data;
   const _MovieList({
     required this.data,
-    super.key,
   });
 
   @override

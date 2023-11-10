@@ -99,4 +99,42 @@ class Alert {
       },
     );
   }
+
+  static notifyAction(context, title, body,
+      {required Function positiveAction}) {
+    I10n i10n = I10n.of(context);
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext contextX) {
+        return CupertinoAlertDialog(
+          title: Text(
+            title,
+            style: cTextReg,
+          ),
+          content: Container(
+            margin: const EdgeInsets.only(top: 16),
+            child: Text(
+              body,
+              style: cTextReg,
+            ),
+          ),
+          actions: <Widget>[
+            CupertinoDialogAction(
+              child: Text(
+                i10n.alertOk,
+                style: cTextReg.copyWith(
+                  color: Colors.black,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(contextX).pop();
+                positiveAction();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

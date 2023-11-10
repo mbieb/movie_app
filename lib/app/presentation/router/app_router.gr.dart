@@ -27,6 +27,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashScreen(),
       );
     },
+    UpdateRoute.name: (routeData) {
+      final args = routeData.argsAs<UpdateRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UpdatePage(
+          movieStore: args.movieStore,
+          isEdit: args.isEdit,
+          key: args.key,
+        ),
+      );
+    },
   };
 }
 
@@ -56,4 +67,46 @@ class SplashRoute extends PageRouteInfo<void> {
   static const String name = 'SplashRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UpdatePage]
+class UpdateRoute extends PageRouteInfo<UpdateRouteArgs> {
+  UpdateRoute({
+    required MovieStore movieStore,
+    bool isEdit = false,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UpdateRoute.name,
+          args: UpdateRouteArgs(
+            movieStore: movieStore,
+            isEdit: isEdit,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'UpdateRoute';
+
+  static const PageInfo<UpdateRouteArgs> page = PageInfo<UpdateRouteArgs>(name);
+}
+
+class UpdateRouteArgs {
+  const UpdateRouteArgs({
+    required this.movieStore,
+    this.isEdit = false,
+    this.key,
+  });
+
+  final MovieStore movieStore;
+
+  final bool isEdit;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UpdateRouteArgs{movieStore: $movieStore, isEdit: $isEdit, key: $key}';
+  }
 }

@@ -4,7 +4,9 @@ import 'package:mobx/mobx.dart';
 import 'package:movie_app/app/domain/failures/failures.dart';
 import 'package:movie_app/app/domain/movie/i_movie_repository.dart';
 import 'package:movie_app/app/domain/movie/movie.dart';
+import 'package:movie_app/app/domain/movie/movie_form.dart/move_form.dart';
 import 'package:movie_app/app/domain/movie/movie_success/movie_success.dart';
+import 'package:movie_app/app/domain/utils/common_util.dart';
 
 part 'movie_store.g.dart';
 
@@ -57,5 +59,17 @@ abstract class _MovieStore with Store {
   @action
   void setSearchQuery(String query) {
     searchQuery = query;
+  }
+
+  @action
+  void addMovie(MovieForm form) {
+    Movie movie = Movie(
+      id: CommonUtils.generateRandomId(),
+      title: form.title.toNullable(),
+      director: form.director.toNullable(),
+      summary: form.summary.toNullable(),
+      genres: form.genres.toNullable(),
+    );
+    movieListOption = some([...movieList, movie]);
   }
 }

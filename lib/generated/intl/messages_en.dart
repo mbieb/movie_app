@@ -34,14 +34,23 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to quit the app?"),
         "alertQuitGame": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to quit the game?"),
+        "alertSuccess": MessageLookupByLibrary.simpleMessage("Success"),
+        "alertSuccessAddMovie":
+            MessageLookupByLibrary.simpleMessage("Success add movie!"),
+        "alertSuccessDeleteMovie":
+            MessageLookupByLibrary.simpleMessage("Success delete movie!"),
         "alertTimeOut":
             MessageLookupByLibrary.simpleMessage("Request time out"),
         "alertWarning": MessageLookupByLibrary.simpleMessage("Warning"),
         "appTitle": MessageLookupByLibrary.simpleMessage("Flutter Movie App"),
+        "director": MessageLookupByLibrary.simpleMessage("Director"),
+        "genres": MessageLookupByLibrary.simpleMessage("Genres"),
         "moviesCollection":
             MessageLookupByLibrary.simpleMessage("Movies Collection"),
         "searchByTitle":
             MessageLookupByLibrary.simpleMessage("Search by title"),
+        "summary": MessageLookupByLibrary.simpleMessage("Summary"),
+        "title": MessageLookupByLibrary.simpleMessage("Title"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }

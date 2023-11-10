@@ -60,7 +60,6 @@ class PrimaryBaseTextField extends StatelessWidget {
       ),
       gapPadding: 0,
     );
-
     return TextField(
       textAlign: textAlign,
       style: cTextMed.copyWith(
@@ -85,7 +84,9 @@ class PrimaryBaseTextField extends StatelessWidget {
         labelText: labelText,
         hintStyle: cTextReg.copyWith(color: cColorGrey4),
         errorText: isError ? '' : null,
-        counterText: '',
+        counterText:
+            maxLength != null ? '${controller?.text.length} / $maxLength' : '',
+        counterStyle: cTextAccentRegXS,
         enabledBorder: outlineInputBorder,
         fillColor: cColorWhite,
         filled: true,
@@ -102,6 +103,36 @@ class PrimaryBaseTextField extends StatelessWidget {
         suffixIcon: suffixIcon,
         prefix: prefix,
         prefixIcon: prefixIcon,
+      ),
+    );
+  }
+}
+
+class _TextFieldFooter extends StatelessWidget {
+  final String? iconPath;
+  final Widget title;
+  final EdgeInsets? margin;
+  const _TextFieldFooter({
+    Key? key,
+    this.iconPath = '',
+    required this.title,
+    this.margin,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: margin ?? padding(top: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: DefaultTextStyle(
+              style: const TextStyle(height: 1.7),
+              child: title,
+            ),
+          ),
+        ],
       ),
     );
   }

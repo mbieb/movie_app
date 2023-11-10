@@ -12,8 +12,8 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      // Navigate to HomePage after 3 seconds
+    Future.delayed(const Duration(seconds: 2), () {
+      // Navigate to HomePage after 2 seconds
       context.router.replace(const HomeRoute());
     });
     return AppScaffold(

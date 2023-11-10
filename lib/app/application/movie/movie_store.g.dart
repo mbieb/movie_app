@@ -113,6 +113,17 @@ mixin _$MovieStore on _MovieStore, Store {
   }
 
   @override
+  void addMovie(MovieForm form) {
+    final _$actionInfo =
+        _$_MovieStoreActionController.startAction(name: '_MovieStore.addMovie');
+    try {
+      return super.addMovie(form);
+    } finally {
+      _$_MovieStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 isLoading: ${isLoading},

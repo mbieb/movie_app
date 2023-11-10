@@ -2,12 +2,15 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx/mobx.dart';
 import 'package:movie_app/app/application/movie/movie_store.dart';
 import 'package:movie_app/app/domain/movie/movie.dart';
 import 'package:movie_app/app/presentation/constants/colors.dart';
 import 'package:movie_app/app/presentation/constants/dimens.dart';
 import 'package:movie_app/app/presentation/constants/text_style.dart';
+import 'package:movie_app/app/presentation/helpers/failure_helper.dart';
 import 'package:movie_app/app/presentation/helpers/ui_helper.dart';
+import 'package:movie_app/app/presentation/router/app_router.dart';
 import 'package:movie_app/app/presentation/widgets/alert.dart';
 import 'package:movie_app/app/presentation/widgets/app_scaffold.dart';
 import 'package:movie_app/app/presentation/widgets/text_field.dart';
@@ -40,6 +43,26 @@ class HomePage extends StatelessWidget {
     I10n i10n = I10n.of(context);
     final movieStore = getIt<MovieStore>();
 
+    reaction((_) => movieStore.failureOrSuccessOption, (failureOrSuccess) {
+      failureOrSuccess.fold(() {}, (either) {
+        either.fold(
+          (failure) => failure.maybeWhen(
+            orElse: () => appFailureHandler(failure, context),
+            handled: (handled) => handled.maybeWhen(
+              orElse: () {},
+              cancelled: () {
+                // context.pop();
+              },
+              error: (message) {
+                Alert.notify(context, i10n.alertWarning, message);
+              },
+            ),
+          ),
+          (success) {},
+        );
+      });
+    });
+
     return WillPopScope(
       onWillPop: () async => _onWillPopScope(context, i10n),
       child: AppScaffold(
@@ -50,7 +73,11 @@ class HomePage extends StatelessWidget {
           backgroundColor: cColorPrimary,
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            context.router.push(
+              UpdateRoute(movieStore: movieStore),
+            );
+          },
           backgroundColor: cColorGreen,
           child: const Icon(Icons.add),
         ),
