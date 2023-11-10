@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alertCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "alertConfirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "alertDelete": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete this data?"),
         "alertFailed": MessageLookupByLibrary.simpleMessage("Failed"),
         "alertLogout": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to log out?"),
@@ -39,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Success add movie!"),
         "alertSuccessDeleteMovie":
             MessageLookupByLibrary.simpleMessage("Success delete movie!"),
+        "alertSuccessEditMovie":
+            MessageLookupByLibrary.simpleMessage("Success edit movie!"),
         "alertTimeOut":
             MessageLookupByLibrary.simpleMessage("Request time out"),
         "alertWarning": MessageLookupByLibrary.simpleMessage("Warning"),
@@ -47,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "genres": MessageLookupByLibrary.simpleMessage("Genres"),
         "moviesCollection":
             MessageLookupByLibrary.simpleMessage("Movies Collection"),
+        "noData": MessageLookupByLibrary.simpleMessage("No data"),
         "searchByTitle":
             MessageLookupByLibrary.simpleMessage("Search by title"),
         "summary": MessageLookupByLibrary.simpleMessage("Summary"),

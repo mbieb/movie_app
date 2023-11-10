@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:movie_app/app/domain/failures/failures.dart';
 import 'package:movie_app/app/domain/utils/common_util.dart';
 

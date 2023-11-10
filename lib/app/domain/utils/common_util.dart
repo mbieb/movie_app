@@ -172,7 +172,7 @@ class CommonUtils {
   }
 
   static String generateRandomId() {
-    var uuid = Uuid();
+    var uuid = const Uuid();
     return uuid.v4();
   }
 

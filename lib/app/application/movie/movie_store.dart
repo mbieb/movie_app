@@ -72,4 +72,29 @@ abstract class _MovieStore with Store {
     );
     movieListOption = some([...movieList, movie]);
   }
+
+  @action
+  void removeMovie(Movie? item) {
+    movieListOption =
+        some(movieList.where((movie) => movie.id != item?.id).toList());
+  }
+
+  @action
+  void editMovie(MovieForm form) {
+    movieListOption = some(
+      movieList.map((movie) {
+        if (movie.id == form.id.toNullable()) {
+          return Movie(
+            id: form.id.toNullable(),
+            title: form.title.toNullable(),
+            director: form.director.toNullable(),
+            summary: form.summary.toNullable(),
+            genres: form.genres.toNullable(),
+          );
+        } else {
+          return movie;
+        }
+      }).toList(),
+    );
+  }
 }

@@ -163,6 +163,17 @@ mixin _$UpdateMovieStore on _UpdateMovieStore, Store {
   }
 
   @override
+  void fethDataDetail(Movie? item) {
+    final _$actionInfo = _$_UpdateMovieStoreActionController.startAction(
+        name: '_UpdateMovieStore.fethDataDetail');
+    try {
+      return super.fethDataDetail(item);
+    } finally {
+      _$_UpdateMovieStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 isLoading: ${isLoading},

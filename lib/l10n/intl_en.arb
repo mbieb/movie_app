@@ -9,7 +9,9 @@
     "alertSuccess": "Success",
     "alertSuccessAddMovie": "Success add movie!",
     "alertSuccessDeleteMovie": "Success delete movie!",
+    "alertSuccessEditMovie": "Success edit movie!",
     "alertOk": "Ok",
+    "alertDelete": "Are you sure you want to delete this data?",
     "alertLogout": "Are you sure you want to log out?",
     "alertQuit": "Are you sure you want to quit the app?",
     "alertQuitGame": "Are you sure you want to quit the game?",
@@ -19,5 +21,6 @@
     "title": "Title",
     "director": "Director",
     "summary": "Summary",
-    "genres": "Genres"
+    "genres": "Genres",
+    "noData": "No data"
 }

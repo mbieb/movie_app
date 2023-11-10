@@ -124,6 +124,28 @@ mixin _$MovieStore on _MovieStore, Store {
   }
 
   @override
+  void removeMovie(Movie? item) {
+    final _$actionInfo = _$_MovieStoreActionController.startAction(
+        name: '_MovieStore.removeMovie');
+    try {
+      return super.removeMovie(item);
+    } finally {
+      _$_MovieStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void editMovie(MovieForm form) {
+    final _$actionInfo = _$_MovieStoreActionController.startAction(
+        name: '_MovieStore.editMovie');
+    try {
+      return super.editMovie(form);
+    } finally {
+      _$_MovieStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 isLoading: ${isLoading},

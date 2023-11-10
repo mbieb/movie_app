@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
+import 'package:movie_app/app/domain/movie/movie.dart';
 import 'package:movie_app/app/domain/movie/movie_form.dart/move_form.dart';
 
 part 'update_movie_store.g.dart';
@@ -60,5 +61,21 @@ abstract class _UpdateMovieStore with Store {
     }
 
     movieForm = movieForm.copyWith(genres: some(selectedGenres));
+  }
+
+  @action
+  void fethDataDetail(Movie? item) {
+    titleTextController.text = item?.title ?? '';
+    summaryTextController.text = item?.summary ?? '';
+    directorTextController.text = item?.director ?? '';
+    selectedGenres.addAll(item?.genres ?? []);
+
+    movieForm = MovieForm(
+      id: optionOf(item?.id),
+      title: optionOf(item?.title),
+      director: optionOf(item?.director),
+      summary: optionOf(item?.summary),
+      genres: optionOf(item?.genres),
+    );
   }
 }

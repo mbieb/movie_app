@@ -100,7 +100,10 @@ class HomePage extends StatelessWidget {
                 }
                 return Observer(
                   builder: (context) {
-                    return _MovieList(data: movieStore.filteredMovies);
+                    return _MovieList(
+                      data: movieStore.filteredMovies,
+                      store: movieStore,
+                    );
                   },
                 );
               },

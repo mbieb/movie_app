@@ -34,6 +34,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: UpdatePage(
           movieStore: args.movieStore,
           isEdit: args.isEdit,
+          data: args.data,
           key: args.key,
         ),
       );
@@ -75,6 +76,7 @@ class UpdateRoute extends PageRouteInfo<UpdateRouteArgs> {
   UpdateRoute({
     required MovieStore movieStore,
     bool isEdit = false,
+    Movie? data,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
@@ -82,6 +84,7 @@ class UpdateRoute extends PageRouteInfo<UpdateRouteArgs> {
           args: UpdateRouteArgs(
             movieStore: movieStore,
             isEdit: isEdit,
+            data: data,
             key: key,
           ),
           initialChildren: children,
@@ -96,6 +99,7 @@ class UpdateRouteArgs {
   const UpdateRouteArgs({
     required this.movieStore,
     this.isEdit = false,
+    this.data,
     this.key,
   });
 
@@ -103,10 +107,12 @@ class UpdateRouteArgs {
 
   final bool isEdit;
 
+  final Movie? data;
+
   final Key? key;
 
   @override
   String toString() {
-    return 'UpdateRouteArgs{movieStore: $movieStore, isEdit: $isEdit, key: $key}';
+    return 'UpdateRouteArgs{movieStore: $movieStore, isEdit: $isEdit, data: $data, key: $key}';
   }
 }

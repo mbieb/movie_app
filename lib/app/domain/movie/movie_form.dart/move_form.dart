@@ -7,6 +7,7 @@ part 'move_form.freezed.dart';
 class MovieForm with _$MovieForm {
   const MovieForm._();
   const factory MovieForm({
+    required Option<String> id,
     required Option<String> title,
     required Option<String> director,
     required Option<String> summary,
@@ -14,6 +15,7 @@ class MovieForm with _$MovieForm {
   }) = _MovieForm;
 
   factory MovieForm.init() => MovieForm(
+        id: none(),
         title: none(),
         director: none(),
         summary: none(),

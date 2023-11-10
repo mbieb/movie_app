@@ -150,11 +150,31 @@ class I10n {
     );
   }
 
+  /// `Success edit movie!`
+  String get alertSuccessEditMovie {
+    return Intl.message(
+      'Success edit movie!',
+      name: 'alertSuccessEditMovie',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Ok`
   String get alertOk {
     return Intl.message(
       'Ok',
       name: 'alertOk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this data?`
+  String get alertDelete {
+    return Intl.message(
+      'Are you sure you want to delete this data?',
+      name: 'alertDelete',
       desc: '',
       args: [],
     );
@@ -255,6 +275,16 @@ class I10n {
     return Intl.message(
       'Genres',
       name: 'genres',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data`
+  String get noData {
+    return Intl.message(
+      'No data',
+      name: 'noData',
       desc: '',
       args: [],
     );

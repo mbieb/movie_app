@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MovieForm {
+  Option<String> get id => throw _privateConstructorUsedError;
   Option<String> get title => throw _privateConstructorUsedError;
   Option<String> get director => throw _privateConstructorUsedError;
   Option<String> get summary => throw _privateConstructorUsedError;
@@ -32,7 +33,8 @@ abstract class $MovieFormCopyWith<$Res> {
       _$MovieFormCopyWithImpl<$Res, MovieForm>;
   @useResult
   $Res call(
-      {Option<String> title,
+      {Option<String> id,
+      Option<String> title,
       Option<String> director,
       Option<String> summary,
       Option<List<String>> genres});
@@ -51,12 +53,17 @@ class _$MovieFormCopyWithImpl<$Res, $Val extends MovieForm>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? director = null,
     Object? summary = null,
     Object? genres = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -86,7 +93,8 @@ abstract class _$$MovieFormImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Option<String> title,
+      {Option<String> id,
+      Option<String> title,
       Option<String> director,
       Option<String> summary,
       Option<List<String>> genres});
@@ -103,12 +111,17 @@ class __$$MovieFormImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? director = null,
     Object? summary = null,
     Object? genres = null,
   }) {
     return _then(_$MovieFormImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as Option<String>,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -133,12 +146,15 @@ class __$$MovieFormImplCopyWithImpl<$Res>
 
 class _$MovieFormImpl extends _MovieForm {
   const _$MovieFormImpl(
-      {required this.title,
+      {required this.id,
+      required this.title,
       required this.director,
       required this.summary,
       required this.genres})
       : super._();
 
+  @override
+  final Option<String> id;
   @override
   final Option<String> title;
   @override
@@ -150,7 +166,7 @@ class _$MovieFormImpl extends _MovieForm {
 
   @override
   String toString() {
-    return 'MovieForm(title: $title, director: $director, summary: $summary, genres: $genres)';
+    return 'MovieForm(id: $id, title: $title, director: $director, summary: $summary, genres: $genres)';
   }
 
   @override
@@ -158,6 +174,7 @@ class _$MovieFormImpl extends _MovieForm {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MovieFormImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.director, director) ||
                 other.director == director) &&
@@ -167,7 +184,7 @@ class _$MovieFormImpl extends _MovieForm {
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, title, director, summary, genres);
+      Object.hash(runtimeType, id, title, director, summary, genres);
 
   @JsonKey(ignore: true)
   @override
@@ -178,12 +195,15 @@ class _$MovieFormImpl extends _MovieForm {
 
 abstract class _MovieForm extends MovieForm {
   const factory _MovieForm(
-      {required final Option<String> title,
+      {required final Option<String> id,
+      required final Option<String> title,
       required final Option<String> director,
       required final Option<String> summary,
       required final Option<List<String>> genres}) = _$MovieFormImpl;
   const _MovieForm._() : super._();
 
+  @override
+  Option<String> get id;
   @override
   Option<String> get title;
   @override
