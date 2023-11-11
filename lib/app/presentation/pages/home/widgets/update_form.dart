@@ -16,19 +16,16 @@ class _UpdateForm extends StatelessWidget {
       children: [
         PrimaryTextField(
           controller: store.titleTextController,
-          onChanged: (val) => store.titleChanged(val),
           keyboardType: TextInputType.text,
           hintText: i10n.title,
         ),
         PrimaryTextField(
           controller: store.directorTextController,
-          onChanged: (val) => store.directorChanged(val),
           keyboardType: TextInputType.text,
           hintText: i10n.director,
         ),
         PrimaryTextField(
           controller: store.summaryTextController,
-          onChanged: (val) => store.summaryChanged(val),
           keyboardType: TextInputType.text,
           hintText: i10n.summary,
           maxLength: 100,

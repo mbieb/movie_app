@@ -174,6 +174,17 @@ mixin _$UpdateMovieStore on _UpdateMovieStore, Store {
   }
 
   @override
+  void dispose() {
+    final _$actionInfo = _$_UpdateMovieStoreActionController.startAction(
+        name: '_UpdateMovieStore.dispose');
+    try {
+      return super.dispose();
+    } finally {
+      _$_UpdateMovieStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 isLoading: ${isLoading},

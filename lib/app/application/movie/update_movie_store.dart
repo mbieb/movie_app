@@ -11,7 +11,19 @@ part 'update_movie_store.g.dart';
 class UpdateMovieStore = _UpdateMovieStore with _$UpdateMovieStore;
 
 abstract class _UpdateMovieStore with Store {
-  _UpdateMovieStore();
+  _UpdateMovieStore() {
+    titleTextController.addListener(() {
+      titleChanged(titleTextController.text);
+    });
+
+    directorTextController.addListener(() {
+      directorChanged(directorTextController.text);
+    });
+
+    summaryTextController.addListener(() {
+      summaryChanged(summaryTextController.text);
+    });
+  }
 
   @observable
   bool isLoading = false;
@@ -37,19 +49,16 @@ abstract class _UpdateMovieStore with Store {
   @action
   void titleChanged(String title) {
     movieForm = movieForm.copyWith(title: some(title));
-    titleTextController.text = title;
   }
 
   @action
   void directorChanged(String director) {
     movieForm = movieForm.copyWith(director: some(director));
-    directorTextController.text = director;
   }
 
   @action
   void summaryChanged(String summary) {
     movieForm = movieForm.copyWith(summary: some(summary));
-    summaryTextController.text = summary;
   }
 
   @action
@@ -77,5 +86,12 @@ abstract class _UpdateMovieStore with Store {
       summary: optionOf(item?.summary),
       genres: optionOf(item?.genres),
     );
+  }
+
+  @action
+  void dispose() {
+    titleTextController.dispose();
+    directorTextController.dispose();
+    summaryTextController.dispose();
   }
 }

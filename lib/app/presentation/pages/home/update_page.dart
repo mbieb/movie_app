@@ -61,6 +61,12 @@ class _UpdatePageState extends State<UpdatePage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    updateMovieStore.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var i10n = I10n.of(context);
     return AppScaffold(
