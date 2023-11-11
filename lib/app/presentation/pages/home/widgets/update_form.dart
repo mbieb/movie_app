@@ -10,36 +10,36 @@ class _UpdateForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var i10n = I10n.of(context);
-    return Observer(
-      builder: (_) {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            PrimaryTextField(
-              controller: store.titleTextController,
-              onChanged: (val) => store.titleChanged(val),
-              keyboardType: TextInputType.text,
-              hintText: i10n.title,
-            ),
-            PrimaryTextField(
-              controller: store.directorTextController,
-              onChanged: (val) => store.directorChanged(val),
-              keyboardType: TextInputType.text,
-              hintText: i10n.director,
-            ),
-            PrimaryTextField(
-              controller: store.summaryTextController,
-              onChanged: (val) => store.summaryChanged(val),
-              keyboardType: TextInputType.text,
-              hintText: i10n.summary,
-              maxLength: 100,
-              maxLines: 3,
-            ),
-            Wrap(
-              spacing: 8.0,
-              runSpacing: 4.0,
-              children: CommonUtils.availableGenres.map((genre) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        PrimaryTextField(
+          controller: store.titleTextController,
+          onChanged: (val) => store.titleChanged(val),
+          keyboardType: TextInputType.text,
+          hintText: i10n.title,
+        ),
+        PrimaryTextField(
+          controller: store.directorTextController,
+          onChanged: (val) => store.directorChanged(val),
+          keyboardType: TextInputType.text,
+          hintText: i10n.director,
+        ),
+        PrimaryTextField(
+          controller: store.summaryTextController,
+          onChanged: (val) => store.summaryChanged(val),
+          keyboardType: TextInputType.text,
+          hintText: i10n.summary,
+          maxLength: 100,
+          maxLines: 3,
+        ),
+        Observer(builder: (context) {
+          return Wrap(
+            spacing: 8.0,
+            runSpacing: 4.0,
+            children: CommonUtils.availableGenres.map(
+              (genre) {
                 return ChoiceChip(
                   selectedColor: cColorGreen,
                   backgroundColor: cColorGrey4,
@@ -56,11 +56,11 @@ class _UpdateForm extends StatelessWidget {
                     store.genresChanged(genre, selected);
                   },
                 );
-              }).toList(),
-            ),
-          ],
-        );
-      },
+              },
+            ).toList(),
+          );
+        }),
+      ],
     );
   }
 }

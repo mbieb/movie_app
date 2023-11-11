@@ -43,72 +43,79 @@ class HomePage extends StatelessWidget {
     I10n i10n = I10n.of(context);
     final movieStore = getIt<MovieStore>();
 
-    reaction((_) => movieStore.failureOrSuccessOption, (failureOrSuccess) {
-      failureOrSuccess.fold(() {}, (either) {
-        either.fold(
-          (failure) => failure.maybeWhen(
-            orElse: () => appFailureHandler(failure, context),
-            handled: (handled) => handled.maybeWhen(
-              orElse: () {},
-              cancelled: () {
-                // context.pop();
-              },
-              error: (message) {
-                Alert.notify(context, i10n.alertWarning, message);
-              },
-            ),
-          ),
-          (success) {},
-        );
-      });
-    });
-
     return WillPopScope(
       onWillPop: () async => _onWillPopScope(context, i10n),
-      child: AppScaffold(
-        backgroundColor: cColorPrimary,
-        appBar: AppBar(
-          title: Text(i10n.moviesCollection),
-          centerTitle: true,
+      child: ReactionBuilder(
+        builder: (context) {
+          return reaction(
+            (_) => movieStore.failureOrSuccessOption,
+            (failureOrSuccess) {
+              failureOrSuccess.fold(
+                () {},
+                (either) {
+                  either.fold(
+                    (failure) => failure.maybeWhen(
+                      orElse: () => appFailureHandler(failure, context),
+                      handled: (handled) => handled.maybeWhen(
+                        orElse: () {},
+                        cancelled: () {},
+                        error: (message) {
+                          Alert.notify(context, i10n.alertWarning, message);
+                        },
+                      ),
+                    ),
+                    (success) {},
+                  );
+                },
+              );
+            },
+          );
+        },
+        child: AppScaffold(
           backgroundColor: cColorPrimary,
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context.router.push(
-              UpdateRoute(movieStore: movieStore),
-            );
-          },
-          backgroundColor: cColorGreen,
-          child: const Icon(Icons.add),
-        ),
-        body: ListView(
-          padding: padding(all: 16),
-          children: [
-            PrimarySearchField(
-              onChanged: (value) => movieStore.setSearchQuery(value),
-              hintText: i10n.searchByTitle,
-            ),
-            gapH16,
-            FutureBuilder(
-              future: movieStore.fetchMovies(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const SizedBox.shrink();
-                }
-                if (snapshot.hasError) {
-                  return const SizedBox.shrink();
-                }
-                return Observer(
-                  builder: (context) {
-                    return _MovieList(
-                      data: movieStore.filteredMovies,
-                      store: movieStore,
-                    );
-                  },
-                );
-              },
-            )
-          ],
+          appBar: AppBar(
+            title: Text(i10n.moviesCollection),
+            centerTitle: true,
+            backgroundColor: cColorPrimary,
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              context.router.push(
+                UpdateRoute(movieStore: movieStore),
+              );
+            },
+            backgroundColor: cColorGreen,
+            child: const Icon(Icons.add),
+          ),
+          body: ListView(
+            padding: padding(all: 16),
+            children: [
+              PrimarySearchField(
+                onChanged: (value) => movieStore.setSearchQuery(value),
+                hintText: i10n.searchByTitle,
+              ),
+              gapH16,
+              FutureBuilder(
+                future: movieStore.fetchMovies(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const SizedBox.shrink();
+                  }
+                  if (snapshot.hasError) {
+                    return const SizedBox.shrink();
+                  }
+                  return Observer(
+                    builder: (context) {
+                      return _MovieList(
+                        data: movieStore.filteredMovies,
+                        store: movieStore,
+                      );
+                    },
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

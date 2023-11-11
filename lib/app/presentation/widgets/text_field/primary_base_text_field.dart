@@ -84,8 +84,6 @@ class PrimaryBaseTextField extends StatelessWidget {
         labelText: labelText,
         hintStyle: cTextReg.copyWith(color: cColorGrey4),
         errorText: isError ? '' : null,
-        counterText:
-            maxLength != null ? '${controller?.text.length} / $maxLength' : '',
         counterStyle: cTextAccentRegXS,
         enabledBorder: outlineInputBorder,
         fillColor: cColorWhite,

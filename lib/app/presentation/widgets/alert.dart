@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/app/presentation/constants/text_style.dart';
@@ -27,7 +28,7 @@ class Alert {
                 'Ok',
               ),
               onPressed: () {
-                // context.pop();
+                context.router.pop();
               },
             ),
           ],
