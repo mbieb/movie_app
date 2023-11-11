@@ -1,16 +1,51 @@
 # movie_app
 
-A new Flutter project.
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The Movie app is an application built with the Flutter framework. This app implements the clean architecture concept and follows the Domain-Driven Design (DDD) folder structure. It also utilizes the MobX state management approach.
 
-A few resources to get you started if this is your first Flutter project:
+### Requirement:
+* Flutter Version: 3.13.9
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation:
+* Clone this project..
+* Run the following commands in the terminal to launch the application:
+ 1. "flutter pub get"
+ 2. "flutter run"
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Features:
+* Splash Screen
+
+* Movie List
+
+* Search Movie
+
+* Add Movie
+
+* Edit Movie
+
+* Delete Movie
+
+### Packages & Libraries:
+* auto_route: Used to create declarative routing in Flutter.
+
+* flutter_mobx: Implementation of state management with MobX in Flutter.
+
+* dartz: Used for functional programming.
+
+* freezed: Used for generated code and immutable values.
+
+* get_it: Used for dependency injection.
+
+* injectable: Used for dependency injection.
+
+* intl: Used for internationalization and localization.
+
+* pull_to_refresh: Used for pull-to-refresh functionality.
+
+* shimmer: Used for shimmer loading effect.
+
+* uuid: Used to generate UUIDs in Flutter.
+
+
+<img src="ss1.png" width="200">  <img src="ss2.png" width="200">  <img src="ss3.png" width="200">  <img src="ss4.png" width="200">  <img src="ss5.png" width="200">  <img src="ss6.png" width="200">  <img src="ss7.png" width="200">  <img src="ss8.png" width="200">  
